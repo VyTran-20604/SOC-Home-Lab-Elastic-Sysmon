@@ -44,7 +44,7 @@ A hands-on Security Operations Center (SOC) home lab focused on building an end-
     powershell.exe -enc SQBlAHgA
     ```
 * **SIEM Detection:**
-![PowerShell Detection](screenshots/powershell-detection(2).png)
+![PowerShell Detection](screenshots/powershell-detection.png)
 *Hunting for `event.code: 1` (Process Creation) where `process.command_line` contains obfuscation flags like `-enc` targeting the execution of suspicious strings.*
 
 ### 2. Registry Run Key Persistence (Persistence)
