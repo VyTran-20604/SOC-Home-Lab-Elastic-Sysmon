@@ -30,7 +30,7 @@ A hands-on Security Operations Center (SOC) home lab focused on building an end-
 ## 📊 SIEM Dashboards & Threat Hunting Visualizations
 
 ### SOC Analytics Dashboard
-![Elastic SIEM Dashboard](images/dashboard.png)
+![Elastic SIEM Dashboard](screenshots/dashboard.png)
 *Custom Kibana dashboard mapping out top Sysmon events, process creations, and potential alert spikes within the environment.*
 
 ---
@@ -44,7 +44,7 @@ A hands-on Security Operations Center (SOC) home lab focused on building an end-
     powershell.exe -enc SQBlAHgA
     ```
 * **SIEM Detection:**
-![PowerShell Detection](images/powershell-detection.png)
+![PowerShell Detection](screenshots/powershell-detection(2).png)
 *Hunting for `event.code: 1` (Process Creation) where `process.command_line` contains obfuscation flags like `-enc` targeting the execution of suspicious strings.*
 
 ### 2. Registry Run Key Persistence (Persistence)
@@ -54,7 +54,7 @@ A hands-on Security Operations Center (SOC) home lab focused on building an end-
     reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Updater /t REG_SZ /d "powershell.exe" /f
     ```
 * **SIEM Detection:**
-![Registry Persistence](images/registry-persistence.png)
+![Registry Persistence](screenshots/registry-persistence.png)
 *Caught Sysmon `EventID: 1` or `EventID: 13` (RegistryEvent) tracking standard CLI tools (`reg.exe`) interacting with critical paths like `\\CurrentVersion\\Run`.*
 
 ### 3. Network Reconnaissance (Discovery)
@@ -64,7 +64,7 @@ A hands-on Security Operations Center (SOC) home lab focused on building an end-
     nmap -Pn -p 80,135,139,445 192.168.114.129
     ```
 * **SIEM Detection:**
-![Network Scan Detection](images/network-scan.png)
+![Network Scan Detection](screenshots/network-scan.png)
 *Monitored Sysmon `EventID: 3` (Network Connection) logs for quick, sequential inbound connections to network management ports from an external machine.*
 
 ---
